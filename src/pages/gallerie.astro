@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import { Image } from 'astro:assets';
+
+import heroImage from '../assets/hero.jpg';
+
+const galleryImages = Array.from({ length: 15 }, (_, i) => {
+  const num = String(i + 1).padStart(2, '0');
+  return `/gallerie/gallerie-${num}.jpg`;
+});
+---
+
+<Layout
+  title="Gallerie | Ristorante Busento"
+  description="Lassen Sie sich von unseren kulinarischen Impressionen und dem eleganten Ambiente inspirieren."
+>
+  <!-- Hero -->
+  <section class="relative h-[40vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={heroImage}
+        alt="Gedeckter Tisch im Ristorante Busento"
+        width={1920}
+        height={800}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-bg/75"></div>
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-text">Impressionen</h1>
+      <div class="w-16 h-px bg-gold mx-auto mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <Section>
+    <Container>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {galleryImages.map((src) => (
+          <div class="relative overflow-hidden group aspect-[4/3]">
+            <img
+              src={src}
+              alt=""
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+        ))}
+      </div>
+    </Container>
+  </Section>
+</Layout>

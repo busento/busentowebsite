@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import { Image } from 'astro:assets';
+
+import heroImage from '../assets/restaurant-chef.jpg';
+import storyImage from '../assets/uberuns.jpg';
+---
+
+<Layout
+  title="Über Uns | Ristorante Busento"
+  description="Lernen Sie Antonio Marte kennen und entdecken Sie die Geschichte hinter dem Ristorante Busento – inspiriert vom Fluss Busento in Cosenza."
+>
+  <!-- Hero -->
+  <section class="relative h-[40vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={heroImage}
+        alt="Küche im Ristorante Busento"
+        width={1920}
+        height={800}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-bg/70"></div>
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <p class="font-script text-2xl md:text-3xl text-gold mb-2">Unsere Geschichte</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-text">La Famiglia Marte</h1>
+      <div class="w-16 h-px bg-gold mx-auto mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <Section>
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-text mb-6">
+            Vom Busento nach Dorsten
+          </h2>
+          <div class="space-y-4 text-text-muted leading-relaxed">
+            <p>
+              Der Name „Busento" ist keine zufällige Wahl – er ist die Seele unseres Restaurants.
+              Der Busento ist ein Fluss in der Nähe von Cosenza, der Hauptstadt der kalabrischen Provinz.
+              Dort, wo das Wasser sanft durch die Hügel fließt, wurzeln die Erinnerungen und die kulinarische
+              Tradition der Familie Marte.
+            </p>
+            <p>
+              Antonio Marte brachte diese Verbundenheit zur kalabrischen Heimat nach Dorsten.
+              Sein Traum war es nicht, einfach nur ein italienisches Restaurant zu eröffnen –
+              sondern einen Ort zu schaffen, an dem die feine Küche Südiraliens lebendig wird.
+            </p>
+            <p>
+              Im Ristorante Busento verbinden wir Tradition mit Vielfalt. Neben unseren gehobenen
+              Gerichten – von handgemachter Pasta bis zu edlen Fleisch- und Fischspezialitäten –
+              backen wir auch Pizza nach authentischem Rezept im Steinofen.
+            </p>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 relative aspect-[4/3] overflow-hidden">
+          <Image
+            src={storyImage}
+            alt="Antonio Marte bei der Arbeit in der Küche"
+            width={800}
+            height={600}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- Philosophie -->
+  <Section background="light">
+    <Container>
+      <div class="text-center mb-12">
+        <p class="font-script text-2xl md:text-3xl text-gold mb-2">Was uns ausmacht</p>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-text">Unsere Philosophie</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="text-center p-6 border border-border hover:border-gold/50 transition-colors duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-gold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/></svg>
+          </div>
+          <h3 class="text-xl font-serif font-bold text-text mb-3">Frische Zutaten</h3>
+          <p class="text-text-muted text-sm leading-relaxed">
+            Wir setzen auf beste, regionale und saisonale Produkte. Was nicht frisch ist,
+            kommt nicht auf den Teller.
+          </p>
+        </div>
+
+        <div class="text-center p-6 border border-border hover:border-gold/50 transition-colors duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-gold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="text-xl font-serif font-bold text-text mb-3">Authentische Rezepte</h3>
+          <p class="text-text-muted text-sm leading-relaxed">
+            Unsere Gerichte basieren auf alten Familienrezepten aus Kalabrien –
+            unverfälscht, zeitlos und voller Geschmack.
+          </p>
+        </div>
+
+        <div class="text-center p-6 border border-border hover:border-gold/50 transition-colors duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-gold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-xl font-serif font-bold text-text mb-3">Familiäre Gastfreundschaft</h3>
+          <p class="text-text-muted text-sm leading-relaxed">
+            Bei uns sind Sie keine Nummer, sondern Gast. Wir nehmen uns Zeit für Sie
+            und sorgen für ein unvergessliches Erlebnis.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </Section>
+</Layout>

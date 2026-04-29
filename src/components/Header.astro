@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.jpeg';
+
+const navLinks = [
+  { href: '/', label: 'Start' },
+  { href: '/speisekarte', label: 'Speisekarte' },
+  { href: '/ueber-uns', label: 'Über Uns' },
+  { href: '/gallerie', label: 'Gallerie' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+
+const phone = '02369 20 575 02';
+const phoneHref = 'tel:023692057502';
+const pathname = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-bg/90 backdrop-blur-md border-b border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-28">
+      <!-- Logo -->
+      <a href="/" class="flex items-center" aria-label="Ristorante Busento Startseite">
+        <Image
+          src={logoImg}
+          alt="Ristorante Busento Logo"
+          width={101}
+          height={101}
+          class="h-[6.3rem] w-[6.3rem] rounded-full object-cover"
+          loading="eager"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm uppercase tracking-widest text-text-muted hover:text-gold transition-colors duration-300 lg:inline-block lg:py-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            aria-current={pathname === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Button Desktop -->
+      <a
+        href={phoneHref}
+        class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 border border-gold text-gold text-sm uppercase tracking-widest hover:bg-gold hover:text-bg transition-all duration-300"
+        aria-label="Tisch telefonisch reservieren"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Tisch anfragen: {phone}
+      </a>
+
+      <!-- Mobile Burger -->
+      <button
+        id="mobile-menu-toggle"
+        class="lg:hidden p-2 text-text hover:text-gold transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Menü öffnen"
+      >
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-bg-light border-t border-border" role="dialog" aria-label="Mobile Navigation">
+    <nav class="flex flex-col px-4 py-6 gap-4" aria-label="Mobile Hauptnavigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-lg uppercase tracking-widest text-text-muted hover:text-gold transition-colors duration-300 py-3 border-b border-border min-h-[44px] flex items-center focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+          aria-current={pathname === link.href ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={phoneHref}
+        class="mt-4 inline-flex items-center justify-center gap-2 px-5 py-3 border border-gold text-gold text-sm uppercase tracking-widest hover:bg-gold hover:text-bg transition-all duration-300 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        aria-label="Tisch telefonisch reservieren"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Tisch anfragen: {phone}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+  let firstFocusable: HTMLElement | null = null;
+  let lastFocusable: HTMLElement | null = null;
+
+  function getFocusables() {
+    return menu?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') || [];
+  }
+
+  function updateFocusables() {
+    const focusables = Array.from(getFocusables());
+    firstFocusable = focusables[0] || null;
+    lastFocusable = focusables[focusables.length - 1] || null;
+  }
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    iconMenu?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Menü schließen');
+    updateFocusables();
+    firstFocusable?.focus();
+    document.addEventListener('keydown', handleKeyDown);
+  }
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    iconMenu?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Menü öffnen');
+    toggle?.focus();
+    document.removeEventListener('keydown', handleKeyDown);
+  }
+
+  function handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeMenu();
+      return;
+    }
+    if (e.key === 'Tab' && firstFocusable && lastFocusable) {
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  }
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.contains('hidden') ? openMenu() : closeMenu();
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closeMenu());
+    });
+  }
+</script>

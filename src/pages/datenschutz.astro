@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+---
+
+<Layout
+  title="Datenschutz | Ristorante Busento"
+  description="Datenschutzerklärung des Ristorante Busento. Informationen zur Verarbeitung Ihrer personenbezogenen Daten."
+>
+  <Section>
+    <Container size="small">
+      <h1 class="text-3xl md:text-4xl font-serif font-bold text-text mb-8">Datenschutzerklärung</h1>
+
+      <div class="space-y-8 text-text-muted leading-relaxed">
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">1. Datenschutz auf einen Blick</h2>
+          <h3 class="text-lg font-serif font-bold text-text mt-4 mb-2">Allgemeine Hinweise</h3>
+          <p>
+            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert,
+            wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert
+            werden können.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">2. Verantwortlicher</h2>
+          <p>
+            Antonio Marte<br>
+            Ristorante Busento<br>
+            Dülmenerstr 16<br>
+            46286 Dorsten<br>
+            Telefon: <a href="tel:023692057502" class="text-gold hover:underline">02369 20 575 02</a><br>
+            E-Mail: <a href="mailto:Busentowulfen@gmail.com" class="text-gold hover:underline">Busentowulfen@gmail.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">3. Datenerfassung auf dieser Website</h2>
+          <h3 class="text-lg font-serif font-bold text-text mt-4 mb-2">Kontaktformular</h3>
+          <p>
+            Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular
+            inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall
+            von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+          </p>
+          <p class="mt-2">
+            Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage
+            mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist.
+            In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven
+            Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung
+            (Art. 6 Abs. 1 lit. a DSGVO), sofern diese abgefragt wurde.
+          </p>
+
+          <h3 class="text-lg font-serif font-bold text-text mt-6 mb-2">Cookies</h3>
+          <p>
+            Unsere Website verwendet ausschließlich technisch notwendige Cookies, die für den Betrieb der Seite
+            erforderlich sind. Diese speichern keine personenbezogenen Daten. Es werden keine Tracking-Cookies
+            oder Analyse-Tools von Drittanbietern eingesetzt.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">4. Hosting</h2>
+          <p>
+            Diese Website wird bei Netlify gehostet. Netlify verarbeitet dabei technisch notwendige Server-Logfiles,
+            die für die Sicherheit und Stabilität des Betriebs erforderlich sind. Weitere Informationen finden Sie in der
+            <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Datenschutzerklärung von Netlify</a>.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">5. Ihre Rechte</h2>
+          <p>
+            Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten,
+            deren Herkunft und Empfänger und den Zweck der Datenverarbeitung. Sie haben außerdem ein Recht auf
+            Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können
+            Sie sich jederzeit an uns wenden.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">6. SSL- bzw. TLS-Verschlüsselung</h2>
+          <p>
+            Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung.
+            Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“
+            auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </Section>
+</Layout>

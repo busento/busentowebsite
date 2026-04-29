@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+---
+
+<Layout
+  title="Impressum | Ristorante Busento"
+  description="Impressum des Ristorante Busento in Dorsten."
+>
+  <Section>
+    <Container size="small">
+      <h1 class="text-3xl md:text-4xl font-serif font-bold text-text mb-8">Impressum</h1>
+
+      <div class="space-y-8 text-text-muted leading-relaxed">
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Angaben gemäß § 5 TMG</h2>
+          <p>
+            <strong class="text-text">Ristorante Busento</strong><br>
+            Inhaber: Antonio Marte<br>
+            Dülmenerstr 16<br>
+            46286 Dorsten<br>
+            Deutschland
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Kontakt</h2>
+          <p>
+            Telefon: <a href="tel:023692057502" class="text-gold hover:underline">02369 20 575 02</a><br>
+            E-Mail: <a href="mailto:Busentowulfen@gmail.com" class="text-gold hover:underline">Busentowulfen@gmail.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Umsatzsteuer-ID</h2>
+          <!-- TODO: Umsatzsteuer-ID einfügen -->
+          <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: <span class="text-text-muted/50">[VOR PRODUKTION EINSETZEN]</span></p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Streitschlichtung</h2>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">https://ec.europa.eu/consumers/odr</a>.
+            Unsere E-Mail-Adresse finden Sie oben im Impressum.
+          </p>
+          <p class="mt-2">
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Haftung für Inhalte</h2>
+          <p>
+            Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+            Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen
+            zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Haftung für Links</h2>
+          <p>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+            Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten
+            ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-gold mb-3">Urheberrecht</h2>
+          <p>
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+            Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes
+            bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </Section>
+</Layout>

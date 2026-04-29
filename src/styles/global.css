@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0e0e0c;
+  --color-bg-light: #1a1a18;
+  --color-bg-lighter: #252522;
+  --color-gold: #d2b87b;
+  --color-gold-light: #e4cf9e;
+  --color-gold-dark: #b89d5e;
+  --color-text: #f2efe9;
+  --color-text-muted: #a8a49c;
+  --color-border: #2a2a28;
+
+  --font-serif: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-sans: 'Lato', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Great Vibes', ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-bg);
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: var(--font-script);
+  }
+  .text-gold {
+    color: var(--color-gold);
+  }
+  .bg-gold {
+    background-color: var(--color-gold);
+  }
+  .border-gold {
+    border-color: var(--color-gold);
+  }
+  .text-gold-light {
+    color: var(--color-gold-light);
+  }
+  .bg-gold-light {
+    background-color: var(--color-gold-light);
+  }
+  .text-gold-dark {
+    color: var(--color-gold-dark);
+  }
+  .bg-gold-dark {
+    background-color: var(--color-gold-dark);
+  }
+  .bg-bg {
+    background-color: var(--color-bg);
+  }
+  .bg-bg-light {
+    background-color: var(--color-bg-light);
+  }
+  .bg-bg-lighter {
+    background-color: var(--color-bg-lighter);
+  }
+  .text-text {
+    color: var(--color-text);
+  }
+  .text-text-muted {
+    color: var(--color-text-muted);
+  }
+  .border-border {
+    border-color: var(--color-border);
+  }
+}

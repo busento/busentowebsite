@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import { Image } from 'astro:assets';
+
+import heroImage from '../assets/bar-dark.jpg';
+
+
+---
+
+<Layout
+  title="Speisekarte | Ristorante Busento"
+  description="Entdecken Sie unsere saisonale Speisekarte mit feinen Antipasti, hausgemachter Pasta und edlen Fleisch- sowie Fischgerichten."
+>
+  <!-- Hero -->
+  <section class="relative h-[40vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={heroImage}
+        alt="Elegante Bar im Ristorante Busento"
+        width={1920}
+        height={800}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-bg/70"></div>
+    </div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-text">Unsere Speisekarte</h1>
+      <div class="w-16 h-px bg-gold mx-auto mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <Section>
+    <Container size="small">
+      <div class="border border-gold p-8 md:p-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-serif font-bold text-text mb-4">
+          Saisonale Kreationen
+        </h2>
+        <p class="text-text-muted mb-8 leading-relaxed">
+          Entdecken Sie unsere aktuelle Speisekarte mit den neuesten Kreationen der Küche.
+          Lassen Sie sich inspirieren – wir freuen uns darauf, Sie kulinarisch zu verwöhnen.
+        </p>
+        <Button
+          href="/BusentoSpeisekarte.pdf"
+          variant="outline"
+          size="md"
+          ariaLabel="Speisekarte als PDF herunterladen"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Speisekarte als PDF ansehen / herunterladen
+        </Button>
+      </div>
+    </Container>
+  </Section>
+
+  <!-- CTA Section -->
+  <Section>
+    <Container size="small">
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-text mb-4">
+          Appetit bekommen?
+        </h2>
+        <p class="text-text-muted mb-8">
+          Reservieren Sie Ihren Tisch telefonisch – wir beraten Sie gerne persönlich.
+        </p>
+        <Button href="tel:023692057502" variant="primary" size="lg" ariaLabel="Tisch telefonisch reservieren">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          02369 20 575 02
+        </Button>
+      </div>
+    </Container>
+  </Section>
+</Layout>

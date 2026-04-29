@@ -1,0 +1,57 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-bg-light border-t border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+      <!-- Adresse & Kontakt -->
+      <div>
+        <h3 class="text-gold font-serif text-xl mb-4">Kontakt</h3>
+        <address class="not-italic text-text-muted space-y-2 text-sm leading-relaxed">
+          <p class="font-bold text-text">Ristorante Busento</p>
+          <p>Inh. Antonio Marte</p>
+          <p>Dülmenerstr 16<br>46286 Dorsten</p>
+          <p>
+            <a href="tel:023692057502" class="hover:text-gold transition-colors inline-block py-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg" aria-label="Rufen Sie uns an">
+              Tel: 02369 20 575 02
+            </a>
+          </p>
+          <p>
+            <a href="mailto:Busentowulfen@gmail.com" class="hover:text-gold transition-colors inline-block py-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg" aria-label="E-Mail senden">
+              Busentowulfen@gmail.com
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Öffnungszeiten -->
+      <div>
+        <h3 class="text-gold font-serif text-xl mb-4">Öffnungszeiten</h3>
+        <div class="text-text-muted space-y-2 text-sm leading-relaxed">
+          <p class="flex justify-between max-w-xs">
+            <span>Täglich</span>
+            <span>17:00 – 22:00 Uhr</span>
+          </p>
+          <p class="flex justify-between max-w-xs">
+            <span>Dienstag</span>
+            <span class="text-gold">Ruhetag</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Rechtliches -->
+      <div>
+        <h3 class="text-gold font-serif text-xl mb-4">Rechtliches</h3>
+        <nav class="flex flex-col gap-2 text-sm" aria-label="Rechtliche Links">
+          <a href="/impressum" class="text-text-muted hover:text-gold transition-colors inline-block py-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Impressum</a>
+          <a href="/datenschutz" class="text-text-muted hover:text-gold transition-colors inline-block py-2 focus-visible:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-border text-center text-text-muted text-xs">
+      <p>© {currentYear} Ristorante Busento. Alle Rechte vorbehalten.</p>
+    </div>
+  </div>
+</footer>

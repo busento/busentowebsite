@@ -1,0 +1,60 @@
+---
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-[100] bg-bg-lighter border-t border-border p-4 md:p-6 shadow-2xl hidden"
+  role="dialog"
+  aria-label="Cookie-Einwilligung"
+  aria-live="polite"
+>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div class="text-sm text-text-muted max-w-2xl">
+      <p>
+        Wir verwenden ausschließlich technisch notwendige Cookies, um die Funktionalität dieser Website zu gewährleisten.
+        Es werden keine Tracking- oder Analyse-Tools eingesetzt. 
+        <a href="/datenschutz" class="text-gold underline hover:text-gold-light">Mehr erfahren</a>
+      </p>
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <button
+        id="cookie-decline"
+        class="px-4 py-2 text-sm text-text-muted border border-border hover:border-text-muted transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        aria-label="Nur notwendige Cookies akzeptieren"
+      >
+        Ablehnen
+      </button>
+      <button
+        id="cookie-accept"
+        class="px-4 py-2 text-sm bg-gold text-bg font-bold hover:bg-gold-light transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        aria-label="Cookies akzeptieren"
+      >
+        Verstanden
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const declineBtn = document.getElementById('cookie-decline');
+    const STORAGE_KEY = 'busento_cookie_consent';
+
+    if (!banner) return;
+
+    const consent = localStorage.getItem(STORAGE_KEY);
+    if (!consent) {
+      banner.classList.remove('hidden');
+    }
+
+    function hideBanner() {
+      banner.classList.add('hidden');
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ timestamp: Date.now() }));
+    }
+
+    acceptBtn?.addEventListener('click', hideBanner);
+    declineBtn?.addEventListener('click', hideBanner);
+  })();
+</script>

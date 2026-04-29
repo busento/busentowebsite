@@ -1,0 +1,108 @@
+---
+import '../styles/global.css';
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/500.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/lato/300.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/lato/700.css';
+import '@fontsource/great-vibes/400.css';
+
+import CookieBanner from '../components/CookieBanner.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'Ristorante Busento – Feine italienische Küche in Dorsten. Ein Familienbetrieb mit Leidenschaft für authentische Spezialitäten aus Kalabrien.',
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const siteURL = Astro.site || 'https://ristorante-busento.de';
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
+const ogImageURL = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteURL).toString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: 'Ristorante Busento',
+  image: ogImageURL,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Dülmenerstr 16',
+    addressLocality: 'Dorsten',
+    postalCode: '46286',
+    addressCountry: 'DE',
+  },
+  telephone: '+49-2369-2057502',
+  email: 'Busentowulfen@gmail.com',
+  url: 'https://ristorante-busento.de',
+  priceRange: '€€',
+  servesCuisine: 'Italienisch',
+  acceptsReservations: 'True',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '17:00',
+      closes: '22:00',
+    },
+  ],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '51.6600',
+    longitude: '6.9600',
+  },
+  menu: 'https://ristorante-busento.de/speisekarte',
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0e0e0c" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ristorante Busento" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="de_DE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-bg text-text">
+    <a href="#main-content" class="absolute -top-full left-4 z-[100] bg-gold text-bg px-4 py-2 text-sm font-bold uppercase tracking-widest transition-all focus:top-4 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-bg">
+      Zum Hauptinhalt springen
+    </a>
+    <Header />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <CookieBanner />
+  </body>
+</html>
