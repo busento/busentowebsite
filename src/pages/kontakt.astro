@@ -24,6 +24,8 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
         height={800}
         class="w-full h-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-bg/70"></div>
     </div>
@@ -115,6 +117,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
                 name="name"
                 required
                 autocomplete="name"
+                aria-invalid="false"
                 class="w-full bg-bg-light border border-border px-4 py-3 text-text placeholder-text-muted/50 focus:border-gold focus:outline-none transition-colors"
                 placeholder="Ihr vollständiger Name"
               />
@@ -131,6 +134,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
                 name="email"
                 required
                 autocomplete="email"
+                aria-invalid="false"
                 class="w-full bg-bg-light border border-border px-4 py-3 text-text placeholder-text-muted/50 focus:border-gold focus:outline-none transition-colors"
                 placeholder="ihre@email.de"
               />
@@ -146,6 +150,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
                 name="message"
                 rows="5"
                 required
+                aria-invalid="false"
                 class="w-full bg-bg-light border border-border px-4 py-3 text-text placeholder-text-muted/50 focus:border-gold focus:outline-none transition-colors resize-y"
                 placeholder="Wie können wir Ihnen helfen?"
               ></textarea>
@@ -158,6 +163,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
                 id="dsgvo"
                 name="dsgvo"
                 required
+                aria-invalid="false"
                 class="mt-1 w-4 h-4 border border-border bg-bg-light text-gold focus:ring-gold focus:ring-offset-0"
               />
               <label for="dsgvo" class="text-sm text-text-muted leading-relaxed">
@@ -186,6 +192,17 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
   function showError(id: string, show: boolean) {
     const el = document.getElementById(id);
     if (el) el.classList.toggle('hidden', !show);
+
+    const fieldId = id.replace('-error', '');
+    const field = form?.elements.namedItem(fieldId) as HTMLElement | null;
+    if (field) {
+      field.setAttribute('aria-invalid', show ? 'true' : 'false');
+      if (show) {
+        field.setAttribute('aria-describedby', id);
+      } else {
+        field.removeAttribute('aria-describedby');
+      }
+    }
   }
 
   function isValidEmail(email: string): boolean {

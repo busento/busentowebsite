@@ -27,6 +27,7 @@ const pathname = Astro.url.pathname;
           height={101}
           class="h-[6.3rem] w-[6.3rem] rounded-full object-cover"
           loading="eager"
+          decoding="async"
         />
       </a>
 
@@ -68,7 +69,7 @@ const pathname = Astro.url.pathname;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-bg-light border-t border-border" role="dialog" aria-label="Mobile Navigation">
+  <div id="mobile-menu" class="hidden lg:hidden bg-bg-light border-t border-border" role="dialog" aria-label="Mobile Navigation" aria-modal="true">
     <nav class="flex flex-col px-4 py-6 gap-4" aria-label="Mobile Hauptnavigation">
       {navLinks.map((link) => (
         <a
@@ -90,6 +91,16 @@ const pathname = Astro.url.pathname;
     </nav>
   </div>
 </header>
+
+<noscript>
+  <style>
+    #mobile-menu { display: block !important; }
+    #mobile-menu-toggle { display: none !important; }
+    @media (min-width: 1024px) {
+      #mobile-menu { display: none !important; }
+    }
+  </style>
+</noscript>
 
 <script>
   const toggle = document.getElementById('mobile-menu-toggle');

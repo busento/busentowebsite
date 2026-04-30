@@ -16,12 +16,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  robots?: string;
 }
 
 const {
   title,
   description = 'Ristorante Busento – Feine italienische Küche in Dorsten. Ein Familienbetrieb mit Leidenschaft für authentische Spezialitäten aus Kalabrien.',
   ogImage = '/og-image.jpg',
+  robots = 'index, follow',
 } = Astro.props;
 
 const siteURL = Astro.site || 'https://ristorante-busento.de';
@@ -53,6 +55,12 @@ const schema = {
       opens: '17:00',
       closes: '22:00',
     },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Tuesday',
+      opens: '00:00',
+      closes: '00:00',
+    },
   ],
   geo: {
     '@type': 'GeoCoordinates',
@@ -70,11 +78,12 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
 
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0e0e0c" />
 
     <meta property="og:type" content="website" />
@@ -83,12 +92,16 @@ const schema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="de_DE" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
+
+    <link rel="preconnect" href="https://api.web3forms.com" />
 
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

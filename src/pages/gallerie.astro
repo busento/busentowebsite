@@ -26,6 +26,8 @@ const galleryImages = Array.from({ length: 15 }, (_, i) => {
         height={800}
         class="w-full h-full object-cover"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-bg/75"></div>
     </div>
@@ -39,12 +41,15 @@ const galleryImages = Array.from({ length: 15 }, (_, i) => {
   <Section>
     <Container>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {galleryImages.map((src) => (
+        {galleryImages.map((src, index) => (
           <div class="relative overflow-hidden group aspect-[4/3]">
             <img
               src={src}
-              alt=""
+              alt={`Kulinarische Impression ${index + 1} aus dem Ristorante Busento`}
               loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </div>

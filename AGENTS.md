@@ -24,14 +24,27 @@ The site has 8 pages (7 content pages plus a custom 404 page), all using a singl
 ```
 public/                     # Static assets served as-is
 ├── gallerie/               # 15 gallery images (gallerie-01.jpg … gallerie-15.jpg)
-├── images/                 # Additional unprocessed images (hero.jpg, logo.jpeg, dish photos)
 ├── BusentoSpeisekarte.pdf  # Menu PDF downloadable from /speisekarte
 ├── favicon.ico
-└── favicon.svg
+├── favicon.svg
+└── robots.txt
 
 src/
 ├── assets/                 # Images processed by Astro (astro:assets)
-│   └── *.jpg
+│   ├── bar-dark.jpg
+│   ├── breakfast.jpg
+│   ├── dessert.jpg
+│   ├── food-dish.jpg
+│   ├── hero.jpg
+│   ├── logo.jpeg
+│   ├── restaurant-chef.jpg
+│   ├── restaurant-table.jpg
+│   ├── spaghetti-frutti-di-mare.jpg
+│   ├── taglioline-forma.jpg
+│   ├── tradition.jpg
+│   ├── uberuns.jpg
+│   ├── vitello-tonnato.jpg
+│   └── wine-glass.jpg
 ├── components/             # Reusable Astro components
 │   ├── Button.astro        # CTA button/link with variant/size props
 │   ├── Container.astro     # Max-width wrapper with size variants
@@ -76,6 +89,7 @@ There is **no testing setup** in this project (no Vitest, Jest, Playwright, etc.
 
 ### Astro Configuration (`astro.config.mjs`)
 - `site`: `https://ristorante-busento.de`
+- `integrations`: `@astrojs/sitemap`
 - Image service: `sharp` via `astro/assets/services/sharp` with `limitInputPixels: false`
 - Vite plugin: `@tailwindcss/vite`
 
@@ -120,6 +134,7 @@ There is **no testing setup** in this project (no Vitest, Jest, Playwright, etc.
 ### Asset Handling
 - **Images:** Use the `astro:assets` `Image` component with explicit `width` and `height` for optimization. Images live in `src/assets/`.
 - **Static files:** PDFs, favicons, gallery images, and other unprocessed assets go in `public/`.
+- **Missing assets:** The layout references `/apple-touch-icon.png` and `/og-image.jpg` as fallback Open Graph images, but these files are **not present** in `public/`. Add them if SEO/social sharing is a priority.
 
 ### SEO & Accessibility Conventions
 - Every page uses `Layout.astro` which injects:
@@ -129,6 +144,7 @@ There is **no testing setup** in this project (no Vitest, Jest, Playwright, etc.
   - `robots: index, follow`
 - **ARIA labels** are consistently used: `aria-label`, `aria-expanded`, `aria-controls`, `aria-live`, `aria-hidden`.
 - **Semantic HTML:** `<header>`, `<main>`, `<footer>`, `<nav>`, `<address>`, `<section>`, `<blockquote>`.
+- **Skip link:** A "Zum Hauptinhalt springen" skip link is the first focusable element in `Layout.astro`.
 
 ---
 
@@ -160,6 +176,7 @@ Because the variable is prefixed with `PUBLIC_`, Astro inlines it into the clien
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
 - `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
+- `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com;`
 
 **Caching headers** for static assets:
 - `/assets/*`, `*.js`, `*.css` → `public, max-age=31536000, immutable`
@@ -177,11 +194,12 @@ There are no CI/CD workflow files (e.g., `.github/workflows/`) in the repository
 
 ## Known TODOs / Placeholders
 
-The codebase contains a few explicit TODOs and placeholders that should not be forgotten:
+The codebase contains explicit TODOs and placeholders that should not be forgotten:
 
-- `src/pages/gallerie.astro` — comment: `<!-- TODO: Durch echte Busento-Bilder austauschen -->`
-- `src/pages/impressum.astro` — VAT ID placeholder: `[Platzhalter]`
-- `src/pages/ueber-uns.astro` — TODO to replace the story image with a real photo of the owner
+- `src/pages/impressum.astro` — VAT ID placeholder: `[VOR PRODUKTION EINSETZEN]` (line 38)
+- `src/pages/ueber-uns.astro` — The story image (`uberuns.jpg`) is used as a placeholder; the original plan noted it should be replaced with a real photo of the owner
+- Missing `public/apple-touch-icon.png` — referenced in `Layout.astro` but not present
+- Missing `public/og-image.jpg` — referenced as default `ogImage` prop in `Layout.astro` but not present
 
 ---
 
@@ -203,3 +221,4 @@ The codebase contains a few explicit TODOs and placeholders that should not be f
 - **Styling:** Use Tailwind utility classes. If you need new design tokens, add them to the `@theme` block in `src/styles/global.css` and create matching utility classes in `@layer utilities`.
 - **Accessibility:** Preserve ARIA attributes, semantic HTML, and focus states when modifying interactive components.
 - **SEO:** When adding new pages, always wrap them in `Layout.astro` and provide `title`, `description`, and optionally `ogImage`.
+- **Icons:** Inline SVGs from Lucide-style icons are used throughout. Prefer keeping them inline for styling control rather than introducing an icon library.

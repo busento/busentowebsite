@@ -1,0 +1,26 @@
+{
+  "name": "Ristorante Busento",
+  "short_name": "Busento",
+  "description": "Feine italienische Küche in Dorsten. Authentische kalabrische Spezialitäten.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e0e0c",
+  "theme_color": "#0e0e0c",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    }
+  ]
+}

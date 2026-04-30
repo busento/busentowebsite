@@ -17,7 +17,7 @@ const {
   ariaLabel,
 } = Astro.props;
 
-const baseStyles = 'inline-flex items-center justify-center gap-2 uppercase tracking-widest transition-all duration-300 font-sans font-bold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-bg';
+const baseStyles = 'inline-flex items-center justify-center gap-2 uppercase tracking-widest transition-all duration-300 font-sans font-bold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-bg active:scale-[0.98]';
 
 const variantStyles = {
   primary: 'bg-gold text-bg hover:bg-gold-light hover:shadow-[0_0_20px_rgba(210,184,123,0.3)]',
@@ -36,11 +36,11 @@ const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${c
 
 {
   href ? (
-    <a href={href} class={classes} aria-label={ariaLabel}>
+    <a href={href} class={classes} {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}>
       <slot />
     </a>
   ) : (
-    <button type={type} class={classes} aria-label={ariaLabel}>
+    <button type={type} class={classes} {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}>
       <slot />
     </button>
   )
